@@ -26,11 +26,14 @@ Pizza.prototype.cost = function(){
   }
 };
 
-$(document).ready(function(){
-  $("#order").submit(function(event){
+$(document).ready(function() {
+  $("#order").submit(function(event) {
     event.preventDefault();
     const userSize= $("#size").val();
     const userAmount=parseInt($("#amount").val());
     let pizza = new Pizza(userAmount, userSize);
+    pizza.cost(pizza);
+    $("#result").text(pizza);
+    $("#final").show();
   });
 });
