@@ -6,13 +6,13 @@ function Pizza(topping, size){
 }
 
 Pizza.prototype.cost = function(){
-  if (this.size.includes('large')){
+  if (this.size === 'large'){
      this.price = 5;
   }
-  else if (this.size.includes('medium')){
+  else if (this.size === 'medium'){
     this.price = 4;
   }
-  else if (this.size.includes('small')){
+  else if (this.size === 'small'){
     this.price = 3;
   }
   if (this.topping > 3){
@@ -32,8 +32,8 @@ $(document).ready(function() {
     const userSize= $("#size").val();
     const userAmount=parseInt($("#amount").val());
     let pizza = new Pizza(userAmount, userSize);
-    pizza.cost(pizza);
-    $("#result").text(pizza);
-    $("#final").show();
+    pizza.cost();
+    $("#result").text(pizza.price);
+    $("#finalOrder").show();
   });
 });
